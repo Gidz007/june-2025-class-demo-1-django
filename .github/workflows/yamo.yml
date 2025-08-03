@@ -23,6 +23,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
+          pip install -r requirements.txt
           
 
   test:
@@ -42,6 +43,8 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements
           pytest
 
   lint:
@@ -62,8 +65,8 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          pip install pylint
-          pylint greeting/ || true  # Change 'greeting/' to your actual code directory
+          pip install -r requirements.txt
+          pylint greeting/ || true  # Change 'greeting/' to your Django app folder
 
   build:
     name: Build Project
